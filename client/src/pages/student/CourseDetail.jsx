@@ -140,15 +140,15 @@ const CourseDetail = () => {
   if (isLoading) return <h1>Loading...</h1>;
 
   // Error handling
-  if (isError) {
-    console.error("Error fetching course details:", error);
-    return (
-      <div className="max-w-7xl mx-auto my-10 px-4 md:px-8">
-        <h1 className="font-bold text-xl">Failed to load course details</h1>
-        <p className="text-red-500">There was an issue loading the course. Please try again later.</p>
-      </div>
-    );
-  }
+  // if (isError) {
+  //   console.error("Error fetching course details:", error);
+  //   return (
+  //     <div className="max-w-7xl mx-auto my-10 px-4 md:px-8">
+  //       <h1 className="font-bold text-xl">Failed to load course details</h1>
+  //       <p className="text-red-500">There was an issue loading the course. Please try again later.</p>
+  //     </div>
+  //   );
+  // }
 
   // Safeguard against missing or malformed data
   const { course, purchased } = data || {};
