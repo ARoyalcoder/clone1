@@ -17,15 +17,20 @@ const app = express();
 
 const PORT = process.env.PORT || 3000;
 
+// ⚡ Handle webhook raw body FIRST
+app.use("/api/v1/purchase/webhook", express.raw({ type: "application/json" }));
+
+app.use(cors({
+    origin:"http://192.168.206.197:5173",
+    credentials:true
+}));
+ 
+
 // default middleware
 app.use(express.json());
 app.use(cookieParser());
 
-app.use(cors({
-    origin:"http://localhost:5173",
-    credentials:true
-}));
- 
+
 // apis
 app.use("/api/v1/media", mediaRoute);
 app.use("/api/v1/user", userRoute);

@@ -5,9 +5,13 @@ import { createCheckoutSession, getAllPurchasedCourse, getCourseDetailWithPurcha
 const router = express.Router();
 
 router.route("/checkout/create-checkout-session").post(isAuthenticated, createCheckoutSession);
-router.route("/webhook").post(express.raw({type:"application/json"}), razorpayWebhook);
-router.route("/course/:courseId/detail-with-status").get(isAuthenticated,getCourseDetailWithPurchaseStatus);
 
-router.route("/").get(isAuthenticated,getAllPurchasedCourse);
+
+router.route("/webhook").post(razorpayWebhook);
+
+
+router.route("/course/:courseId/detail-with-status").get(isAuthenticated, getCourseDetailWithPurchaseStatus);
+
+router.route("/").get(isAuthenticated, getAllPurchasedCourse);
 
 export default router;
