@@ -13,7 +13,7 @@ export const courseApi = createApi({
   endpoints: (builder) => ({
     createCourse: builder.mutation({
       query: ({ courseTitle, category }) => ({
-        url: "",
+        url: "/",
         method: "POST",
         body: { courseTitle, category },
       }),
@@ -49,7 +49,7 @@ export const courseApi = createApi({
     }),
     getCreatorCourse: builder.query({
       query: () => ({
-        url: "",
+        url: "/",
         method: "GET",
       }),
       providesTags: ["Refetch_Creator_Course"],
