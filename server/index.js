@@ -21,7 +21,9 @@ const PORT = process.env.PORT || 3000;
 app.use("/api/v1/purchase/webhook", express.raw({ type: "application/json" }));
 
 app.use(cors({
-    origin:"https://willowy-blancmange-d6ba0c.netlify.app",
+    origin:
+    // "https://willowy-blancmange-d6ba0c.netlify.app",
+    "http://localhost:5173",
     credentials:true
 }));
  
