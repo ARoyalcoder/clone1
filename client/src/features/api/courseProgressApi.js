@@ -50,8 +50,8 @@
 import { createApi } from "@reduxjs/toolkit/query/react";
 import axiosBaseQuery from "../axiosBaseQuery"; // adjust path as needed
 
-const COURSE_PROGRESS_API = "http://localhost:8080/api/v1/progress";
-// const COURSE_PROGRESS_API = "https://udemyclone-6z5o.onrender.com/api/v1/progress";
+// const COURSE_PROGRESS_API = "http://localhost:8080/api/v1/progress";
+const COURSE_PROGRESS_API = "https://udemyclone-6z5o.onrender.com/api/v1/progress";
 
 console.log(COURSE_PROGRESS_API);
 

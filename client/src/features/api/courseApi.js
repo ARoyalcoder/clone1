@@ -135,8 +135,8 @@
 import { createApi } from "@reduxjs/toolkit/query/react";
 import axiosBaseQuery from "../axiosBaseQuery.js"; // update the path as needed
 
-const COURSE_API = "http://localhost:8080/api/v1/course";
-// const COURSE_API = "https://udemyclone-6z5o.onrender.com/api/v1/course";
+// const COURSE_API = "http://localhost:8080/api/v1/course";
+const COURSE_API = "https://udemyclone-6z5o.onrender.com/api/v1/course";
 
 console.log(COURSE_API);
 

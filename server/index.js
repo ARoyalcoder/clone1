@@ -22,7 +22,7 @@ const PORT = process.env.PORT || 3000;
 
 // white listing 
 const whitelist = [
-    "http://localhost:5173",
+    // "http://localhost:5173",
     "https://willowy-blancmange-d6ba0c.netlify.app",
     // "https://your-production-domain.com"
 ];

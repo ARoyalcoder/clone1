@@ -45,8 +45,8 @@
 import { createApi } from "@reduxjs/toolkit/query/react";
 import axiosBaseQuery from "../axiosBaseQuery"; 
 
-// const COURSE_PURCHASE_API = "https://udemyclone-6z5o.onrender.com/api/v1/purchase";
-const COURSE_PURCHASE_API = "http://localhost:8080/api/v1/purchase";
+const COURSE_PURCHASE_API = "https://udemyclone-6z5o.onrender.com/api/v1/purchase";
+// const COURSE_PURCHASE_API = "http://localhost:8080/api/v1/purchase";
 
 console.log(COURSE_PURCHASE_API);
 

@@ -87,8 +87,8 @@ import axiosBaseQuery from "../axiosBaseQuery.js";
 
 
 
-// const USER_API = "https://udemyclone-6z5o.onrender.com/api/v1/user/"
-const USER_API = "http://localhost:8080/api/v1/user/";
+const USER_API = "https://udemyclone-6z5o.onrender.com/api/v1/user/"
+// const USER_API = "http://localhost:8080/api/v1/user/";
 console.log(USER_API);
 
 export const authApi = createApi({
