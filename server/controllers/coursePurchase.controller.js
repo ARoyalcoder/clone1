@@ -42,9 +42,14 @@ export const createCheckoutSession = async (req, res) => {
     await newPurchase.save();
 
     // Set URLs based on environment
-    const successUrl = `https://willowy-blancmange-d6ba0c.netlify.app/course-progress/${courseId}`;
-
-    const cancelUrl = `https://willowy-blancmange-d6ba0c.netlify.app/course-detail/${courseId}`;
+    const successUrl = process.env.NODE_ENV === "production"
+    ? `https://willowy-blancmange-d6ba0c.netlify.app/course-progress/${courseId}`
+    : `http://localhost:5173/course-progress/${courseId}`;
+  
+  const cancelUrl = process.env.NODE_ENV === "production"
+    ? `https://willowy-blancmange-d6ba0c.netlify.app/course-detail/${courseId}`
+    : `http://localhost:5173/course-detail/${courseId}`;
+  
 
     return res.status(200).json({
       success: true,

@@ -17,16 +17,34 @@ const app = express();
 
 const PORT = process.env.PORT || 3000;
 
+
+
+
+// white listing 
+const whitelist = [
+    "http://localhost:5173",
+    "https://willowy-blancmange-d6ba0c.netlify.app",
+    // "https://your-production-domain.com"
+];
+
+console.log(whitelist); 
+
 // ⚡ Handle webhook raw body FIRST
 app.use("/api/v1/purchase/webhook", express.raw({ type: "application/json" }));
 
 app.use(cors({
-    origin:
-    "https://willowy-blancmange-d6ba0c.netlify.app",
-    // "http://localhost:5173",
-    credentials:true
+    origin: function (origin, callback) {
+        if (!origin || whitelist.includes(origin)) {
+            callback(null, true);
+        } else {
+            callback(new Error("Not allowed by CORS"));
+        }
+    },
+    credentials: true
 }));
- 
+
+
+
 
 // default middleware
 app.use(express.json());

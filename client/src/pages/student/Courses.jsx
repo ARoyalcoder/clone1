@@ -5,7 +5,7 @@ import { useGetPublishedCourseQuery } from "@/features/api/courseApi";
  
 const Courses = () => {
   const {data, isLoading, isError} = useGetPublishedCourseQuery();
- 
+  console.log(data);
   if(isError) return <h1>Some error occurred while fetching courses.</h1>
 
   return (
@@ -18,7 +18,7 @@ const Courses = () => {
               <CourseSkeleton key={index} />
             ))
           ) : (
-           data?.courses && data?.courses?.map((course, index) => <Course key={index} course={course}/>) 
+           data?.courses && data.courses?.map((course, index) => <Course key={index} course={course}/>) 
           )}
         </div>
       </div>
