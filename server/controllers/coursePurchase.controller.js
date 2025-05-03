@@ -43,13 +43,13 @@ export const createCheckoutSession = async (req, res) => {
 
     // Set URLs based on environment
     const successUrl = process.env.NODE_ENV === "production"
-    ? `https://willowy-blancmange-d6ba0c.netlify.app/course-progress/${courseId}`
-    : `http://localhost:5173/course-progress/${courseId}`;
-  
-  const cancelUrl = process.env.NODE_ENV === "production"
-    ? `https://willowy-blancmange-d6ba0c.netlify.app/course-detail/${courseId}`
-    : `http://localhost:5173/course-detail/${courseId}`;
-  
+      ? `https://willowy-blancmange-d6ba0c.netlify.app/course-progress/${courseId}`
+      : `http://localhost:5173/course-progress/${courseId}`;
+
+    const cancelUrl = process.env.NODE_ENV === "production"
+      ? `https://willowy-blancmange-d6ba0c.netlify.app/course-detail/${courseId}`
+      : `http://localhost:5173/course-detail/${courseId}`;
+
 
     return res.status(200).json({
       success: true,
@@ -142,7 +142,7 @@ export const getCourseDetailWithPurchaseStatus = async (req, res) => {
       .populate({ path: "lectures" });
 
     const purchased = await CoursePurchase.findOne({ userId, courseId });
-    console.log(purchased);
+    // console.log(purchased);
 
     if (!course) {
       return res.status(404).json({ message: "course not found!" });
@@ -157,20 +157,44 @@ export const getCourseDetailWithPurchaseStatus = async (req, res) => {
   }
 };
 
+// export const getAllPurchasedCourse = async (_, res) => {
+//   try {
+//     const purchasedCourse = await CoursePurchase.find({
+//       status: "completed",
+//     }).populate("courseId");
+//     if (!purchasedCourse) {
+//       return res.status(404).json({
+//         purchasedCourse: [],
+//       });
+//     }
+//     return res.status(200).json({
+//       purchasedCourse,
+//     });
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
+
+
 export const getAllPurchasedCourse = async (_, res) => {
   try {
     const purchasedCourse = await CoursePurchase.find({
       status: "completed",
     }).populate("courseId");
-    if (!purchasedCourse) {
+
+    if (purchasedCourse.length === 0) {
       return res.status(404).json({
         purchasedCourse: [],
       });
     }
+
     return res.status(200).json({
       purchasedCourse,
     });
   } catch (error) {
-    console.log(error);
+    console.error(error);
+    return res.status(500).json({
+      message: "Internal server error",
+    });
   }
 };
