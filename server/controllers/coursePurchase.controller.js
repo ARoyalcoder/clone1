@@ -43,11 +43,11 @@ export const createCheckoutSession = async (req, res) => {
 
     // Set URLs based on environment
     const successUrl = process.env.NODE_ENV === "production"
-      ? `https://willowy-blancmange-d6ba0c.netlify.app/course-progress/${courseId}`
+      ? `https://clone1-edpi.onrender.com/course-progress/${courseId}`
       : `http://localhost:5173/course-progress/${courseId}`;
 
     const cancelUrl = process.env.NODE_ENV === "production"
-      ? `https://willowy-blancmange-d6ba0c.netlify.app/course-detail/${courseId}`
+      ? `https://clone1-edpi.onrender.com/course-detail/${courseId}`
       : `http://localhost:5173/course-detail/${courseId}`;
 
 
